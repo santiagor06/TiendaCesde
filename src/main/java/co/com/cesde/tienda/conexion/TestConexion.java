@@ -1,6 +1,7 @@
 package co.com.cesde.tienda.conexion;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class TestConexion {
@@ -14,6 +15,7 @@ public class TestConexion {
 
         }catch (SQLException e ){
             System.out.println(e);
+
         }
 
 
