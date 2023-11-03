@@ -44,4 +44,27 @@ public class ProductoDao {
             System.out.println(e);
         }
     }
+    public static void eliminarProductoDB(int id){
+        Conexion conexion=new Conexion();
+        PreparedStatement ps;
+        try (Connection connection=conexion.getConnectionDB()){
+            String query="DELETE FROM productos WHERE id_producto=?";
+            ps=connection.prepareStatement(query);
+            ps.setInt(1,id);
+            ps.executeUpdate();
+            System.out.println("Se ha eliminado correctamente");
+        }catch (SQLException e){
+            System.out.println(e);
+        }
+    }
+    public static void actualizarProductos(ProductoModelo pm){
+        Conexion conexion=new Conexion();
+        PreparedStatement ps;
+        try (Connection connection= conexion.getConnectionDB()){
+
+
+        }catch (SQLException e){
+            System.out.println(e);
+        }
+    }
 }

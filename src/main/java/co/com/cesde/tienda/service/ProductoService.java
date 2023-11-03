@@ -24,4 +24,32 @@ public class ProductoService {
     public void consultarProducto(){
         ProductoDao.consultarProductoDB();
     }
+    public void eliminarProducto(){
+        System.out.println("Ingrese el id que desea eliminar");
+        int id=sc.nextInt();
+        ProductoDao.eliminarProductoDB(id);
+    }
+    public void actualizarProducto(ProductoModelo pm){
+        System.out.println("Indique el id que desea actualizar");
+        int id=sc.nextInt();
+
+        System.out.println("Seleccione una opcion: 1.Actualizar Nombre,2.Actuaizar Cantidad,3.Actualizar Precio");
+        int opc= sc.nextInt();
+        if(opc==1){
+            System.out.println("Ingrese el nuevo nombre del producto");
+            String newName=sc.next();
+            pm.setNombreProducto(newName);
+
+        } else if (opc==2) {
+            System.out.println("Ingrese la cantidad del producto");
+            double newCantidad=sc.nextDouble();
+            pm.setCantidad(newCantidad);
+        }else if (opc==3) {
+            System.out.println("Ingrese la cantidad del producto");
+            double newPrecio=sc.nextDouble();
+            pm.setCantidad(newPrecio);
+        }else System.out.println("Seleccione una opcion valida");
+
+        ProductoDao.actualizarProductos(pm);
+    }
 }

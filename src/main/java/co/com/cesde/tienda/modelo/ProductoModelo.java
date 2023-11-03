@@ -36,7 +36,7 @@ public class ProductoModelo {
         return cantidad;
     }
 
-    public void setCantidad(float cantidad) {
+    public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -44,7 +44,7 @@ public class ProductoModelo {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 }
