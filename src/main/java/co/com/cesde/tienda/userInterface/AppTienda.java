@@ -15,6 +15,7 @@ public class AppTienda {
                     UIProducto.showMenu();
                     break;
                 case 2:
+                    UICliente.showMenu();
                     break;
                 case 3:
                     break;

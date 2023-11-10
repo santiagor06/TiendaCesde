@@ -68,7 +68,7 @@ public class ProductoDao {
 
         ps.setString(1,pm.getNombreProducto());
         ps.setInt(2,pm.getId());
-        ps.executeUpdate();
+
     }
     else if(pm.getOption()==2){
         String query="UPDATE producto SET cantidad=? WHERE id_producto=?";
