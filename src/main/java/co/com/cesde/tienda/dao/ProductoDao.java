@@ -14,7 +14,7 @@ public class ProductoDao {
         try(Connection connection= conexion.getConnectionDB()){
             PreparedStatement ps;
             try {
-                String query="INSERT INTO productos (nombre_producto,cantidad,precio) VALUES(?,?,?)";
+                String query="INSERT INTO producto (nombre_producto,cantidad,precio) VALUES(?,?,?)";
                 ps=connection.prepareStatement(query);
                 ps.setString(1,pm.getNombreProducto());
                 ps.setDouble(2,pm.getCantidad());
@@ -31,7 +31,7 @@ public class ProductoDao {
         Conexion conexion=new Conexion();
         PreparedStatement ps;
         try(Connection connection=conexion.getConnectionDB()) {
-            String query="SELECT * FROM productos";
+            String query="SELECT * FROM producto";
             ps=connection.prepareStatement(query);
             ResultSet rs;
             rs=ps.executeQuery();
@@ -48,7 +48,7 @@ public class ProductoDao {
         Conexion conexion=new Conexion();
         PreparedStatement ps;
         try (Connection connection=conexion.getConnectionDB()){
-            String query="DELETE FROM productos WHERE id_producto=?";
+            String query="DELETE FROM producto WHERE id_producto=?";
             ps=connection.prepareStatement(query);
             ps.setInt(1,id);
             ps.executeUpdate();
@@ -62,6 +62,30 @@ public class ProductoDao {
         PreparedStatement ps;
         try (Connection connection= conexion.getConnectionDB()){
 
+    if(pm.getOption()==1){
+        String query="UPDATE producto SET nombre_producto=? WHERE id_producto=?";
+        ps=connection.prepareStatement(query);
+
+        ps.setString(1,pm.getNombreProducto());
+        ps.setInt(2,pm.getId());
+        ps.executeUpdate();
+    }
+    else if(pm.getOption()==2){
+        String query="UPDATE producto SET cantidad=? WHERE id_producto=?";
+        ps=connection.prepareStatement(query);
+
+                ps.setDouble(1,pm.getCantidad());
+                ps.setInt(2,pm.getId());
+        ps.executeUpdate();
+            }
+    else if(pm.getOption()==3){
+        String query="UPDATE producto SET precio=? WHERE id_producto=?";
+        ps=connection.prepareStatement(query);
+
+        ps.setDouble(1,pm.getPrecio());
+        ps.setInt(2,pm.getId());
+        ps.executeUpdate();
+    }
 
         }catch (SQLException e){
             System.out.println(e);

@@ -32,9 +32,11 @@ public class ProductoService {
     public void actualizarProducto(ProductoModelo pm){
         System.out.println("Indique el id que desea actualizar");
         int id=sc.nextInt();
+        pm.setId(id);
 
-        System.out.println("Seleccione una opcion: 1.Actualizar Nombre,2.Actuaizar Cantidad,3.Actualizar Precio");
+        System.out.println("Seleccione una opcion:\n1.Actualizar Nombre\n2.Actuaizar Cantidad\n3.Actualizar Precio");
         int opc= sc.nextInt();
+        pm.setOption(opc);
         if(opc==1){
             System.out.println("Ingrese el nuevo nombre del producto");
             String newName=sc.next();

@@ -5,6 +5,15 @@ public class ProductoModelo {
     private String nombreProducto;
     private double cantidad;
     private double precio;
+    private int option;
+
+    public int getOption() {
+        return option;
+    }
+
+    public void setOption(int option) {
+        this.option = option;
+    }
 
     public ProductoModelo() {
     }
