@@ -2,6 +2,7 @@ package co.com.cesde.tienda.service;
 
 import co.com.cesde.tienda.modelo.ClienteModelo;
 import co.com.cesde.tienda.modelo.ProductoModelo;
+import co.com.cesde.tienda.userInterface.UICompra;
 
 import java.util.ArrayList;
 
@@ -12,8 +13,7 @@ public class TestService {
         CompraService cm=new CompraService();
         ProductoModelo producto=ps.consultarProductoId(2);
         ClienteModelo cliente=cs.consultarclienteId(1000894076);
-        cm.crearCompra(producto,cliente);
-
+        UICompra.showMenu(cliente);
 
 
     }
