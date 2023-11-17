@@ -5,11 +5,14 @@ import co.com.cesde.tienda.dao.ProductoDao;
 import co.com.cesde.tienda.modelo.ClienteModelo;
 import co.com.cesde.tienda.modelo.ProductoModelo;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ClienteService  {
     static Scanner sc=new Scanner(System.in);
      public void crearCliente(ClienteModelo cm){
+         System.out.println("Ingrese el id del cliente");
+         int id=sc.nextInt();
         System.out.println("Ingrese el nombre del Cliente");
         String nombre=sc.next();
         System.out.println("Ingrese el apellido del Cliente");
@@ -18,14 +21,18 @@ public class ClienteService  {
         String correo=sc.next();
         System.out.println("Ingrese el contraseña del Cliente");
         String contrasena=sc.next();
+        cm.setId(id);
         cm.setNombre(nombre);
         cm.setApellido(apellido);
         cm.setCorreo(correo);
         cm.setContrasena(contrasena);
         ClienteDao.crearClienteDB(cm);
     }
-    public void consultarCliente(){
-         ClienteDao.consultarClienteDB();
+    public ArrayList<ClienteModelo> consultarCliente(){
+         return ClienteDao.consultarClienteDB();
+    }
+    public ClienteModelo consultarclienteId(int id){
+         return ClienteDao.consultarClienteIdDB(id);
     }
     public void eliminarCliente(){
         System.out.println("Ingrese el id que desea eliminar");

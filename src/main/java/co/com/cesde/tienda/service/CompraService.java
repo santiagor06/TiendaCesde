@@ -1,33 +1,37 @@
 package co.com.cesde.tienda.service;
 
+import co.com.cesde.tienda.dao.CompraDao;
 import co.com.cesde.tienda.dao.ProductoDao;
+import co.com.cesde.tienda.modelo.ClienteModelo;
+import co.com.cesde.tienda.modelo.CompraModelo;
 import co.com.cesde.tienda.modelo.ProductoModelo;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ProductoService {
+public class CompraService {
     Scanner sc=new Scanner(System.in);
-    public void crearProducto(ProductoModelo pm){
+    public void crearCompra(ProductoModelo pm, ClienteModelo cm){
+        CompraModelo compraModelo=new CompraModelo();
+        compraModelo.setCliente(cm);
+        compraModelo.setProducto(pm);
 
-        System.out.println("Ingrese el nombre del producto");
-        String nombreProducto=sc.next();
         System.out.println("Ingrese la cantidad del producto");
         float cantidad=sc.nextFloat();
-           System.out.println("Ingrese el precio del producto");
-        float precio=sc.nextFloat();
-        pm.setNombreProducto(nombreProducto);
-        pm.setCantidad(cantidad);
-        pm.setPrecio(precio);
-        ProductoDao.crearProductoDB(pm);
+
+        if(cantidad>pm.getCantidad()) System.out.println("No hay la cantidad suficiente");
+        else{
+
+        compraModelo.setCantidad(cantidad);
+        CompraDao.crearCompraDB(compraModelo);
+        }
 
     }
-    public ArrayList<ProductoModelo> consultarProducto(){
-
-        return ProductoDao.consultarProductoDB();
+    public ArrayList<CompraModelo> consultarCompras(){
+        return CompraDao.consultarComprasDB();
     }
-    public ProductoModelo consultarProductoId(int id){
-        return ProductoDao.consultarProductoIdDB(id);
+    public CompraModelo consultarComprasId(int id){
+        return CompraDao.consultarComprasIdDB(id);
     }
     public void eliminarProducto(){
         System.out.println("Ingrese el id que desea eliminar");

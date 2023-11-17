@@ -63,6 +63,15 @@ public class ClienteModelo {
         return contrasena;
     }
 
+    @Override
+    public String toString() {
+        return "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", correo='" + correo + '\'' +
+                ", contrasena='" + contrasena ;
+    }
+
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }

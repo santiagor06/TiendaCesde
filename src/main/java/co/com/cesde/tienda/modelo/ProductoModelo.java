@@ -33,6 +33,15 @@ public class ProductoModelo {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return
+                "id=" + id +
+                ", nombreProducto='" + nombreProducto + '\'' +
+                ", cantidad=" + cantidad +
+                ", precio=" + precio ;
+    }
+
     public String getNombreProducto() {
         return nombreProducto;
     }
