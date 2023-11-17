@@ -26,6 +26,7 @@ public class UICliente {
                     cs.consultarCliente();
                     break;
                 case 3:
+                    cs.actualizarCliente(cm);
                     break;
                 case 4:
                     cs.eliminarCliente();

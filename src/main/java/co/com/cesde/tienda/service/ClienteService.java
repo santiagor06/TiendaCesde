@@ -7,7 +7,7 @@ import co.com.cesde.tienda.modelo.ProductoModelo;
 
 import java.util.Scanner;
 
-public class ClienteService {
+public class ClienteService  {
     static Scanner sc=new Scanner(System.in);
      public void crearCliente(ClienteModelo cm){
         System.out.println("Ingrese el nombre del Cliente");
