@@ -5,6 +5,7 @@ public class CompraModelo {
     ClienteModelo cliente;
     ProductoModelo producto;
     float cantidad;
+    double precioTotal;
 
     public int getId() {
         return id;
@@ -12,6 +13,14 @@ public class CompraModelo {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public double getPrecioTotal() {
+        return precioTotal;
+    }
+
+    public void setPrecioTotal(double precioTotal) {
+        this.precioTotal = precioTotal;
     }
 
     public ClienteModelo getCliente() {
@@ -47,10 +56,11 @@ public class CompraModelo {
     @Override
     public String toString() {
         return
-                "id=" + id +
-                ", cliente=" + cliente +
-                ", producto=" + producto +
-                ", cantidad=" + cantidad ;
+                "id compra:" + id +
+                ",\n cliente: " + cliente +
+                ",\n producto: " + producto.getNombreProducto() +
+                ", cantidad: " + cantidad +
+                ", Precio Total: "+ precioTotal;
     }
 
     public void setCantidad(float cantidad) {

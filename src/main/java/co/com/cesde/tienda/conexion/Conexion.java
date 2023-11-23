@@ -11,9 +11,7 @@ public class Conexion {
         Connection connect = null;
         try{
             connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendacesde", "root", "");
-            if(connect!= null){
-                System.out.println("Conexion exitosa");
-            }
+
         }catch (SQLException e){
             System.out.println(e);
         }

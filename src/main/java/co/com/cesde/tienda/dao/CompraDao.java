@@ -15,14 +15,16 @@ public class CompraDao {
         Conexion conexion=new Conexion();
         try(Connection connection= conexion.getConnectionDB()){
             PreparedStatement ps;
-            String query="INSERT INTO compra (id_cliente,id_producto,cantidad_compra) VALUES(?,?,?)";
+            String query="INSERT INTO compra (id_cliente,id_producto,cantidad_compra,precio_total) VALUES(?,?,?,?)";
             ps= connection.prepareStatement(query);
             ps.setInt(1,compraModelo.getCliente().getId());
             ps.setInt(2,compraModelo.getProducto().getId());
             ps.setFloat(3,compraModelo.getCantidad());
+            ps.setDouble(4,compraModelo.getPrecioTotal());
             ps.executeUpdate();
 
             System.out.println("Su compra se ha realizado exitosamente");
+            System.out.println(compraModelo);
         }catch(SQLException e){
             System.out.println(e);
         }

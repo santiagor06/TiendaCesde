@@ -65,11 +65,10 @@ public class ClienteModelo {
 
     @Override
     public String toString() {
-        return "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", correo='" + correo + '\'' +
-                ", contrasena='" + contrasena ;
+        return "id: " + id +
+                ", nombre: '" + nombre + '\'' +
+                ", apellido: '" + apellido + '\'' +
+                ", correo: '" + correo ;
     }
 
     public void setContrasena(String contrasena) {

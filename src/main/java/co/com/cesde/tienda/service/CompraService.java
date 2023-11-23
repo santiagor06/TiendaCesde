@@ -11,19 +11,24 @@ import java.util.Scanner;
 
 public class CompraService {
     Scanner sc=new Scanner(System.in);
-    public void crearCompra(ProductoModelo pm, ClienteModelo cm){
+    public void crearCompra(ProductoModelo productoModelo, ClienteModelo cm){
         CompraModelo compraModelo=new CompraModelo();
         compraModelo.setCliente(cm);
-        compraModelo.setProducto(pm);
+        compraModelo.setProducto(productoModelo);
 
         System.out.println("Ingrese la cantidad del producto");
         float cantidad=sc.nextFloat();
 
-        if(cantidad>pm.getCantidad()) System.out.println("No hay la cantidad suficiente");
+        if(cantidad>productoModelo.getCantidad()) System.out.println("No hay la cantidad suficiente");
         else{
-
         compraModelo.setCantidad(cantidad);
+        double nuevaCantidad= productoModelo.getCantidad()- compraModelo.getCantidad();
+        double precioTotal=cantidad*productoModelo.getPrecio();
+        compraModelo.setPrecioTotal(precioTotal);
+        productoModelo.setOption(2);
+        productoModelo.setCantidad(nuevaCantidad);
         CompraDao.crearCompraDB(compraModelo);
+        ProductoDao.actualizarProductos(productoModelo);
         }
 
     }

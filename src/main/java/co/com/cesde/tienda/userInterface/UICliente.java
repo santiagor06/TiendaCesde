@@ -11,7 +11,7 @@ public class UICliente {
     public static void  showMenu(){
         boolean flag=true;
         ClienteService cs=new ClienteService();
-        ClienteModelo cm=new ClienteModelo();
+
 
         do {
             System.out.println("Se encuentra en el modelo de Cliente");
@@ -20,13 +20,13 @@ public class UICliente {
             int opc= sc.nextInt();
             switch (opc){
                 case 1:
-                    cs.crearCliente(cm);
+                    cs.crearCliente();
                     break;
                 case 2:
                     cs.consultarCliente();
                     break;
                 case 3:
-                    cs.actualizarCliente(cm);
+                    cs.actualizarCliente();
                     break;
                 case 4:
                     cs.eliminarCliente();

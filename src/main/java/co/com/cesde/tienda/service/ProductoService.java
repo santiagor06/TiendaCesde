@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 public class ProductoService {
     Scanner sc=new Scanner(System.in);
-    public void crearProducto(ProductoModelo pm){
-
+    public void crearProducto(){
+        ProductoModelo pm=new ProductoModelo();
         System.out.println("Ingrese el nombre del producto");
         String nombreProducto=sc.next();
         System.out.println("Ingrese la cantidad del producto");
@@ -34,7 +34,9 @@ public class ProductoService {
         int id=sc.nextInt();
         ProductoDao.eliminarProductoDB(id);
     }
-    public void actualizarProducto(ProductoModelo pm){
+    public void actualizarProducto(){
+        ProductoModelo pm=new ProductoModelo();
+
         System.out.println("Indique el id que desea actualizar");
         int id=sc.nextInt();
         pm.setId(id);
@@ -54,9 +56,10 @@ public class ProductoService {
         }else if (opc==3) {
             System.out.println("Ingrese la cantidad del producto");
             double newPrecio=sc.nextDouble();
-            pm.setCantidad(newPrecio);
+            pm.setPrecio(newPrecio);
         }else System.out.println("Seleccione una opcion valida");
 
         ProductoDao.actualizarProductos(pm);
     }
+
 }

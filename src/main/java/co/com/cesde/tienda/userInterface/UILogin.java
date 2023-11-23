@@ -11,15 +11,30 @@ public class UILogin {
     public static void showMenu(){
         boolean flag=true;
         do{
-            System.out.println("Ingrese su correo");
-            String email=sc.next();
-            System.out.println("Ingrese su contraseña");
-            String password=sc.next();
-
+            System.out.println("Seleccione una opcion:");
+            System.out.println("1. Registrarse\n2. Iniciar Sesion\n3. Salir");
+            int opcion=sc.nextInt();
+            switch (opcion){
+                case 1:
+                    ClienteService clienteService=new ClienteService();
+                    clienteService.crearCliente();
+                    break;
+                case 2:
+                    authCliente();
+                    break;
+                case 3:
+                    flag=false;
+                default:
+                    System.out.println("Seleccione una opcion valida");
+            }
         }while(flag);
 
     }
-    private static void authCliente(String email,String password){
+    private static void authCliente(){
+        System.out.println("Ingrese su correo");
+        String email=sc.next();
+        System.out.println("Ingrese su contraseña");
+        String password=sc.next();
         ClienteService cs=new ClienteService();
         ArrayList<ClienteModelo>clientes=cs.consultarCliente();
         for (int i=0;i<clientes.size();i++){
@@ -33,4 +48,5 @@ public class UILogin {
         }
         System.out.println("Credenciales incorrectas ");
     }
+
 }

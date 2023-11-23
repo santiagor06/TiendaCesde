@@ -11,7 +11,7 @@ public class UIProducto {
     public static void  showMenu(){
         boolean flag=true;
         ProductoService ps=new ProductoService();
-        ProductoModelo pm=new ProductoModelo();
+
 
         do {
             System.out.println("Se encuentra en el modelo de Producto");
@@ -20,13 +20,13 @@ public class UIProducto {
             int opc= sc.nextInt();
             switch (opc){
                 case 1:
-                    ps.crearProducto(pm);
+                    ps.crearProducto();
                     break;
                 case 2:
                     ps.consultarProducto();
                     break;
                 case 3:
-                    ps.actualizarProducto(pm);
+                    ps.actualizarProducto();
                     break;
                 case 4:
                     ps.eliminarProducto();

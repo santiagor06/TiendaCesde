@@ -10,7 +10,8 @@ import java.util.Scanner;
 
 public class ClienteService  {
     static Scanner sc=new Scanner(System.in);
-     public void crearCliente(ClienteModelo cm){
+     public void crearCliente(){
+         ClienteModelo cm=new ClienteModelo();
          System.out.println("Ingrese el id del cliente");
          int id=sc.nextInt();
         System.out.println("Ingrese el nombre del Cliente");
@@ -39,7 +40,9 @@ public class ClienteService  {
         int id=sc.nextInt();
         ClienteDao.eliminarClienteDB(id);
     }
-    public void actualizarCliente(ClienteModelo cm){
+    public void actualizarCliente(){
+        ClienteModelo cm=new ClienteModelo();
+
         System.out.println("Indique el id que desea actualizar");
         int id=sc.nextInt();
         cm.setId(id);
